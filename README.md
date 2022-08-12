@@ -186,6 +186,29 @@ by USUBJID LBDTC LBCAT LBTESTCD;
 if First.USUBJID then LBSEQ=1;
 else LBSEQ+1;
 run;
+        
+/*Epoch: it is the part of the study
+if LBDTC<RFSTDTC then Epoch="Screening";
+Else if LBDTC>=RFSTDTC and LBDTC<=RFENTDC then epoch="Treatment";
+else if LBDTC>RFENDTC THen EPOCH="Follow-Up";
+*/
+
+If X<Y Then Epoch="Screening";
+else if x>=Y And X<=Y then Epoch="Treatment"; 
+else if x>Y then Epoch="Follow-up";
+run;
+
+data sdtm_db;
+retain studyid domain usubjid lbseq lbtestcd lbtest lbcat lborres 
+
+
+/*few more variables*/
+LBSTAT-------status completion
+LBREASND------Reason for not done;
+
+Data LB1_;
+set LB1;
+
 
 
 
