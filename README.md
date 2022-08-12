@@ -208,6 +208,13 @@ LBREASND------Reason for not done;
 
 Data LB1_;
 set LB1;
+if LBORRES=" " then LBSTAT="Not done";
+else LBSTAT=" ";
+if LBSTAT="Not done" Then LBREASND="Insufficient sample";
+/* Reason: Insufficient sample/Subject deined to take the test/Equipment Broken"*/
+
+
+/*LB domain Needs to be correct again it is not fully coded*/
 
 
 
